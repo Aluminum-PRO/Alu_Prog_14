@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанные с этой сборкой.
-[assembly: AssemblyTitle("Alu_Prog_14")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Console Game")]
+[assembly: AssemblyDescription("Квест")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Alu_Prog_14")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
+[assembly: AssemblyCompany("Aluminum-Company")]
+[assembly: AssemblyProduct("Console Game")]
+[assembly: AssemblyCopyright("Copyright ©Aluminum-Company  2021-2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Можно задать все значения или принять номера сборки и редакции по умолчанию 
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("0.0.0.1")]
+[assembly: AssemblyFileVersion("0.0.0.1")]
