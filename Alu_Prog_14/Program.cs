@@ -27,7 +27,7 @@ namespace Alu_Prog_14
         static void Game_Settings()
         {
             Item.Add(new Inventory() { empty = true, count = 1, name = "Шляпа" });
-            Item.Add(new Inventory() { empty = true, count = 1, name = "камень" });
+            Item.Add(new Inventory() { empty = true, count = 1, name = "Камень" });
             Item.Add(new Inventory() { empty = true, count = 1, name = "меч" });
 
             List<Inventory> inventory = new List<Inventory>();
