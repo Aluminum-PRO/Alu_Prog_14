@@ -125,6 +125,10 @@ namespace Alu_Prog_14
         {
             Selected_Item_Number = 0; Current_Room_Number = 1; Money = 0;
             Game_is_Started = false; is_Menu = true; Dialogue_With_a_Tramp = false;
+            foreach (Inventory i in inventory)
+            {
+                i.empty = false; i.count = 0; i.name = "";
+            }
         }
 
         static public int Select_an_Item(int Count_Item)
