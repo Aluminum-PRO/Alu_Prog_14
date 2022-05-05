@@ -63,7 +63,9 @@ namespace Alu_Prog_14
                 if (!Program.Dialogue_With_a_Tramp) Dialogues_Class.Tramp_Dialogue();
                 else if (Program.Dialogue_With_a_Tramp)
                 {
+                    Program.Clear_Console();
                     Console.Write(" (Бродяга)| У меня больше ничего нет\n{0}", Program.Press_Enter);
+                    Console.ReadKey();
                 }
             }
             else if (Program.Selected_Item_Number == 2)

@@ -54,7 +54,7 @@ namespace Alu_Prog_14
                 Program.Clear_Console();
                 Console.Write(" (Вы)| Вы подошли к Бродяге и сказали ему:\"Жизнь или смерть, грязный бродяга!\"\n" +
                     " (Бродяга)| Вот возьми всё что у меня есть, только не трогай меня\n" +
-                    "{0}\n (1)Забрать всё что у него есть\n (2)Оставить бродягу в покое\n{1}", Program.Available_Actions, Program.Waiting_for_a_Response);
+                    "{0}\n (1)Забрать всё что у него есть\n (2)Оставить бродягу в покое\n{1}", Program.Available_Actions, Program.Waiting_for_a_Response); //TODO: После диалога не открывается Escepe и Inventory
             }
         }
     }

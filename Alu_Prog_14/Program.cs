@@ -94,6 +94,18 @@ namespace Alu_Prog_14
                 else if (Selected_Item_Number == 2) { Reset(); is_Menu = false; Game_is_Started = true; }
                 else if (Selected_Item_Number == 3) Environment.Exit(0);
             }
+            if (Selected_Item_Number == -1)
+            {
+                Clear_Console();
+                Console.Write("\n В главном меню нельзя ещё раз открыть меню\n{0}", Program.Press_Enter);
+                Console.ReadKey();
+            }
+            else if (Program.Selected_Item_Number == -2)
+            {
+                Clear_Console();
+                Console.Write("\n В главном меню нельзя открыть инвентарь\n{0}", Program.Press_Enter);
+                Console.ReadKey();
+            }
         }
 
         static void Show_Inventory()
@@ -119,10 +131,10 @@ namespace Alu_Prog_14
         {
             int Selected_Item;
             Selected_Item_Text = Console.ReadKey().Key.ToString();
-            if (Selected_Item_Text == "Escape" && !is_Menu)
+            if (Selected_Item_Text == "Escape")
             { is_Menu = true; return -1; }
-            else if (Selected_Item_Text == "I" && !is_Menu)
-            { Show_Inventory(); return -2; }
+            else if (Selected_Item_Text == "I")
+            { if (!is_Menu)Show_Inventory(); return -2; }
             int.TryParse(String.Join("", Selected_Item_Text.Where(c => char.IsDigit(c))), out Selected_Item);
             bool is_Converted = Selected_Item != 0;
             bool is_In_Range = Selected_Item >= 1 && Selected_Item <= Count_Item;
@@ -132,7 +144,6 @@ namespace Alu_Prog_14
                 Console.Write("\n Неизвестная команда: \"{0}\"\n{1}", Selected_Item_Text, Waiting_for_a_Response);
                 Selected_Item_Text = Console.ReadKey().Key.ToString();
                 int.TryParse(String.Join("", Selected_Item_Text.Where(c => char.IsDigit(c))), out Selected_Item);
-                Console.Write(Selected_Item.ToString());
                 is_Converted = Selected_Item != 0;
                 is_In_Range = Selected_Item >= 1 && Selected_Item <= Count_Item;
             }
