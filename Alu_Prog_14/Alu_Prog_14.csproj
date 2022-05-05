@@ -7,7 +7,7 @@
     <ProjectGuid>{EA56CAD1-B95A-4589-8041-C16C8767CF19}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Alu_Prog_14</RootNamespace>
-    <AssemblyName>Console Game</AssemblyName>
+    <AssemblyName>Zuoya</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dialogues_Class.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rooms_Class.cs" />

@@ -8,8 +8,8 @@ namespace Alu_Prog_14
 {
     public class Inventory
     {
-        public bool empty;
-        public int count;
+        public bool empty = false;
+        public int count = 0;
         public string name;
     }
 
@@ -17,33 +17,20 @@ namespace Alu_Prog_14
     {
         #region Variables
         static public string Main_Patch, Ver, Selected_Item_Text;
-        static public string Version_Info_Text = "\n Управление игрой происходит цифрами (\"1\" или \"NumPud1\" или \"F1\")\n \"Escape\" - Главное меню\n\n", Available_Actions = " Доступные действия:", Waiting_for_a_Response = " Ожидание ответа: ", Press_Enter = " Нажмите любую клавишу для продолжения...\n";
-        static public int Selected_Item_Number = 0, Current_Room_Number = 1;
-        static public bool Game_is_Started = false, is_Menu = true;
+        static public string Version_Info_Text = "\n Управление игрой происходит цифрами (\"1\" или \"NumPud1\" или \"F1\")\n \"Escape\" - Главное меню\n \"I\" - Открыть инвентарь\n\n", Available_Actions = " Доступные действия:", Waiting_for_a_Response = " Ожидание ответа: ", Press_Enter = " Нажмите любую клавишу для продолжения...\n";
+        static public int Selected_Item_Number = 0, Current_Room_Number = 1, Money = 0;
+        static public bool Game_is_Started = false, is_Menu = true, Dialogue_With_a_Tramp = false;
         static public List<Inventory> Item = new List<Inventory>();
-
+        static public List<Inventory> inventory = new List<Inventory>();
         #endregion
 
         static void Game_Settings()
         {
-            Item.Add(new Inventory() { empty = true, count = 1, name = "Шляпа" });
-            Item.Add(new Inventory() { empty = true, count = 1, name = "Камень" });
-            Item.Add(new Inventory() { empty = true, count = 1, name = "Меч" });
+            Item.Add(new Inventory() { empty = true, count = 1, name = "Медальон" });
 
-            List<Inventory> inventory = new List<Inventory>();
-
-            for (int i = 0; i <= 10; i++)
+            for (int i = 0; i <= 3; i++)
             {
                 inventory.Add(new Inventory());
-            }
-
-            inventory.Insert(0, Item[0]);
-
-            foreach (Inventory i in inventory)
-            {
-                //Console.WriteLine(i.empty);
-                //Console.WriteLine(i.count);
-                //Console.WriteLine(i.name);
             }
         }
 
@@ -85,7 +72,7 @@ namespace Alu_Prog_14
                 Ver += ".Alpha";
             else if (Convert.ToInt32(Ver.Split('.')[3]) != 0)
                 Ver += ".Pre-Alpha";
-            Ver = " Ver." + Ver;
+            Ver = " Zuoya Ver." + Ver;
             Console.Write(Ver + Version_Info_Text);
         }
 
@@ -109,10 +96,23 @@ namespace Alu_Prog_14
             }
         }
 
-        static void Reset()
+        static void Show_Inventory()
         {
-            Selected_Item_Number = 0; Current_Room_Number = 1;
-            Game_is_Started = false; is_Menu = true;
+            Clear_Console();
+            Console.Write("\n Ваш инвентарь:\n {0} Монет\n", Money);
+            foreach (Inventory i in inventory)
+            {
+                if (!i.empty) Console.Write(" В этом слоту пусто\n");
+                else if (i.empty) Console.Write(" {0} {1}\n", i.count, i.name);
+            }
+            Console.Write("{0}", Program.Press_Enter);
+            Console.ReadKey();
+        }
+
+        static public void Reset()
+        {
+            Selected_Item_Number = 0; Current_Room_Number = 1; Money = 0;
+            Game_is_Started = false; is_Menu = true; Dialogue_With_a_Tramp = false;
         }
 
         static public int Select_an_Item(int Count_Item)
@@ -121,6 +121,8 @@ namespace Alu_Prog_14
             Selected_Item_Text = Console.ReadKey().Key.ToString();
             if (Selected_Item_Text == "Escape" && !is_Menu)
             { is_Menu = true; return -1; }
+            else if (Selected_Item_Text == "I" && !is_Menu)
+            { Show_Inventory(); return -2; }
             int.TryParse(String.Join("", Selected_Item_Text.Where(c => char.IsDigit(c))), out Selected_Item);
             bool is_Converted = Selected_Item != 0;
             bool is_In_Range = Selected_Item >= 1 && Selected_Item <= Count_Item;
