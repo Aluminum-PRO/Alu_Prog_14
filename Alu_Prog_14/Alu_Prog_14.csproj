@@ -47,9 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dialogues_Class.cs" />
+    <Compile Include="Methods_Class.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rooms_Class.cs" />
+    <Compile Include="Variables_Class.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
