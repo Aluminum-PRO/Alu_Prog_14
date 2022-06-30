@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EA56CAD1-B95A-4589-8041-C16C8767CF19}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Alu_Prog_14</RootNamespace>
+    <RootNamespace>Alu_Prog_15</RootNamespace>
     <AssemblyName>Zuoya</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
